@@ -1,20 +1,24 @@
 'use strict';
 
 import { NEXT_QUESTION_BUTTON_ID } from '../constants.js';
-import { quizData } from '../data.js';
-import { nextQuestion } from '../listeners/questionListeners.js';
 import { createDOMElement, getDOMElement } from '../utils/DOMUtils.js';
 import { checkAnswer } from '../views/answer-selection.js';
+
 /**
  * Create an Answer element
  */
+
 export const createAnswerElement = (answerText, letters) => {
+  // here we make structure for each answer, put the answer text inside the buttons
+  // and put a capital letter for every choice.
   const answerElement = createDOMElement('div');
   answerElement.className = 'choice-container';
+
   const choiceLetter = createDOMElement('p');
   choiceLetter.className = 'prefixer-container';
   choiceLetter.innerText = letters.toUpperCase();
   answerElement.appendChild(choiceLetter);
+
   const answerButton = createDOMElement('button');
   answerElement.appendChild(answerButton);
   answerButton.innerText = answerText;
@@ -27,6 +31,8 @@ export const createAnswerElement = (answerText, letters) => {
  */
 
 export const createQuestionElement = (question) => {
+  // question argument is whole element in quizData.question array.
+  // here we make a structure for whole question to put answers in it.
   const container = document.createElement('div');
   container.className = 'container';
   container.id = 'question-container';
@@ -39,18 +45,20 @@ export const createQuestionElement = (question) => {
   questionText.id = 'Next-question';
   questionText.innerText = question.text;
   mainWrapper.appendChild(questionText);
-  
+
   const answersContainer = document.createElement('div');
   answersContainer.className = 'questions-wrapper';
   answersContainer.id = 'user-interface';
   mainWrapper.appendChild(answersContainer);
 
+  // this for loop is to execute the function to build structure for every answer for current question,
   for (const answerKey in question.answers) {
     const answer = createAnswerElement(question.answers[answerKey], answerKey);
+    //then we append it to the question div which we made above.
     answersContainer.appendChild(answer);
   }
 
-  // here we put a unique Id for every button
+  // here we put a unique Id for every button after producing them in the other for loop.
   let answerKeyNumber = 0;
   let buttonsEl = container.querySelectorAll('button');
   for (const answerKey in question.answers) {
@@ -59,21 +67,24 @@ export const createQuestionElement = (question) => {
   }
 
   //!important
-  buttonsEl.forEach((button) => button.addEventListener('click', checkAnswer)); //we need to check later
-  //container.appendChild(answerContainer);
+  // here we added an event listener for each button to check if the answer is right.
+  buttonsEl.forEach((button) => button.addEventListener('click', checkAnswer));
 
+  // return the whole container to screen.
   return container;
 };
 
 /**
  * Creates and returns the next questions button
  */
+
 export const createNextQuestionButtonElement = () => {
   const buttonElement = createDOMElement('button', {
     id: NEXT_QUESTION_BUTTON_ID,
   });
 
   buttonElement.innerText = 'Next \n Q';
+
   //buttonElement.addEventListener('click', nextQuestion);
 
   return buttonElement;

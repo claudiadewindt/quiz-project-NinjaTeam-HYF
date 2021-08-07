@@ -25,9 +25,8 @@ export const createDOMElement = (tag, options) => {
   return element;
 };
 
-/**
- * Find and return a DOM element by its id
- */
+//Find and return a DOM element by its id
+
 export const getDOMElement = (id) => {
   return document.getElementById(id);
 };
