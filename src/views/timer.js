@@ -1,5 +1,6 @@
 import { getDOMElement } from '../utils/DOMUtils.js';
 import { nextQuestion } from '../listeners/questionListeners.js';
+import { quizData } from '../data.js';
 
 // Timer function
 export const timerEl = getDOMElement('timer');
@@ -7,7 +8,8 @@ export let activateTimer;
 
 // activate timer function.
 export const activateTimerFn = () => {
-  timerEl.textContent = 10;
+  // when we active the timer for each question we need to make 
+  timerEl.textContent = quizData.questions[quizData.currentQuestionIndex].timer;
   activateTimer = window.setInterval(counterTimer, 1000);
 };
 
