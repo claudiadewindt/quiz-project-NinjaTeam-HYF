@@ -176,10 +176,8 @@ button {
 .btn-2 a:hover,
 .btn-3 a:hover,
 .btn-4 #next-question-button:hover,
-button#a:hover,
-button#b:hover,
-button#c:hover,
-button#d:hover {
+.answer-button:hover
+{
   /* transform: scaleY(0);*/
   background-color: var(--second-color);
   color: rgb(140 115 108);

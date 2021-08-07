@@ -12,7 +12,8 @@ scoreEl.textContent = 0;
 export const checkAnswer = function selectedAnswer() {
   // deactivating timer if we select any answer.
   deactivateTimerFn();
-
+  // here we delete the class that when we hove make a black background from the selected answer
+  this.classList.remove('answer-button');
   // activating the next question button after choosing:
   const nextQuestionButton = getDOMElement(NEXT_QUESTION_BUTTON_ID);
   nextQuestionButton.addEventListener('click', nextQuestion);

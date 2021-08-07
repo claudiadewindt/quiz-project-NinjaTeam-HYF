@@ -59,10 +59,13 @@ export const createQuestionElement = (question) => {
   }
 
   // here we put a unique Id for every button after producing them in the other for loop.
+  // and also put the same class to let it different when hovering.
   let answerKeyNumber = 0;
   let buttonsEl = container.querySelectorAll('button');
   for (const answerKey in question.answers) {
+    buttonsEl[answerKeyNumber].classList.add('answer-button');
     buttonsEl[answerKeyNumber].id = answerKey;
+    
     answerKeyNumber++;
   }
 
