@@ -29,14 +29,17 @@ export const createAnswerElement = (answerText, letters) => {
 export const createQuestionElement = (question) => {
   const container = document.createElement('div');
   container.className = 'container';
+  container.id = 'question-container';
+
   const mainWrapper = document.createElement('div');
   mainWrapper.id = 'main-wrapper';
   container.appendChild(mainWrapper);
+
   const questionText = document.createElement('h2');
-  container.id = 'question-container';
   questionText.id = 'Next-question';
   questionText.innerText = question.text;
   mainWrapper.appendChild(questionText);
+  
   const answersContainer = document.createElement('div');
   answersContainer.className = 'questions-wrapper';
   answersContainer.id = 'user-interface';
