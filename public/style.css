@@ -181,6 +181,7 @@ button#d:hover
   background-color: var(--second-color);
   color: rgb(140 115 108);
   font-weight: bold;
+  cursor: pointer;
 }
 /* #next-question-button{
   width: 50%;
