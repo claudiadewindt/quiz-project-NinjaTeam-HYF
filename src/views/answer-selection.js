@@ -1,20 +1,22 @@
 import { quizData } from '../data.js';
 import { getDOMElement } from '../utils/DOMUtils.js';
-import { NEXT_QUESTION_BUTTON_ID } from '../constants.js'; 
+import { NEXT_QUESTION_BUTTON_ID } from '../constants.js';
 import { nextQuestion } from '../listeners/questionListeners.js';
 
-const spanEl = getDOMElement('score');
-spanEl.textContent = 0;
+const scoreEl = getDOMElement('score');
+scoreEl.textContent = 0;
 
 export const checkAnswer = function selectedAnswer() {
   const nextQuestionButton = getDOMElement(NEXT_QUESTION_BUTTON_ID);
   nextQuestionButton.addEventListener('click', nextQuestion);
   const buttonsCon = this.parentElement.parentElement;
-  const answerButtons = buttonsCon.querySelectorAll("button");
+  const answerButtons = buttonsCon.querySelectorAll('button');
   if (this.id === quizData.questions[quizData.currentQuestionIndex].correct) {
     this.classList.add('correct-answer');
-    answerButtons.forEach( button => button.removeEventListener('click',checkAnswer));
-    return (spanEl.textContent = parseFloat(spanEl.textContent) + 100);
+    answerButtons.forEach((button) =>
+      button.removeEventListener('click', checkAnswer)
+    );
+    return (scoreEl.textContent = parseFloat(scoreEl.textContent) + 100);
   } else {
     this.classList.add('wrong-answer');
     const correct = quizData.questions[quizData.currentQuestionIndex].correct;
@@ -22,7 +24,12 @@ export const checkAnswer = function selectedAnswer() {
     /* forEach button if it's id = the correct answer letter (ex: "c") it give correct-answer class to the button
     and in all situations it removes the Event listener.*/
 
-    answerButtons.forEach(element => element.id == correct ? element.classList.add("correct-answer") && element.removeEventListener('click',checkAnswer): element.removeEventListener('click',checkAnswer) );
-    return (spanEl.textContent = parseFloat(spanEl.textContent) - 50);
+    answerButtons.forEach((element) =>
+      element.id == correct
+        ? element.classList.add('correct-answer') &&
+          element.removeEventListener('click', checkAnswer)
+        : element.removeEventListener('click', checkAnswer)
+    );
+    return (scoreEl.textContent = parseFloat(scoreEl.textContent) - 50);
   }
 };
