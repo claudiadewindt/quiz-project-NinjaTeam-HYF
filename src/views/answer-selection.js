@@ -2,15 +2,24 @@ import { quizData } from '../data.js';
 import { getDOMElement } from '../utils/DOMUtils.js';
 import { NEXT_QUESTION_BUTTON_ID } from '../constants.js'; 
 import { nextQuestion } from '../listeners/questionListeners.js';
+import { deactivateTimerFn } from '../views/timer.js';
 
 const spanEl = getDOMElement('score');
 spanEl.textContent = 0;
+// this function works when you choose any answer >>
 
 export const checkAnswer = function selectedAnswer() {
+  // deactivating timer one we select any answer.
+  deactivateTimerFn();
+  
+  // activating the next question button after choosing:
   const nextQuestionButton = getDOMElement(NEXT_QUESTION_BUTTON_ID);
   nextQuestionButton.addEventListener('click', nextQuestion);
+
+  // targeting the answers buttons to work on it:
   const buttonsCon = this.parentElement.parentElement;
   const answerButtons = buttonsCon.querySelectorAll("button");
+
   if (this.id === quizData.questions[quizData.currentQuestionIndex].correct) {
     this.classList.add('correct-answer');
     answerButtons.forEach( button => button.removeEventListener('click',checkAnswer));
