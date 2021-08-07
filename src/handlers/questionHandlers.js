@@ -1,12 +1,16 @@
 'use strict';
 
-import { QUESTION_CONTAINER_ID, NEXT_QUESTION_BUTTON_ID } from '../constants.js';
+import {
+  QUESTION_CONTAINER_ID,
+  NEXT_QUESTION_BUTTON_ID,
+} from '../constants.js';
 import { createQuestionElement } from '../views/questionViews.js';
 import { clearDOMElement, getDOMElement } from '../utils/DOMUtils.js';
 import { quizData } from '../data.js';
 import { nextQuestion } from '../listeners/questionListeners.js';
 import { activateTimerFn } from '../views/timer.js';
 
+//the showCurrentQuestion function will push the current question to the screen and activate the timer.
 export const showCurrentQuestion = () => {
   const currentQuestion = quizData.questions[quizData.currentQuestionIndex];
 
@@ -18,20 +22,11 @@ export const showCurrentQuestion = () => {
   activateTimerFn();
 };
 
+//the handleNextQuestion function will upgrade the currentQuestion index, to show what question will be executed
+//stop the nextQuestion button from working until the user select any answer, and call the function to show the current question.
 export const handleNextQuestion = () => {
   quizData.currentQuestionIndex = quizData.currentQuestionIndex + 1;
   const nextQuestionButton = getDOMElement(NEXT_QUESTION_BUTTON_ID);
-  nextQuestionButton.removeEventListener('click', nextQuestion)
+  nextQuestionButton.removeEventListener('click', nextQuestion);
   showCurrentQuestion();
 };
-
-/* This is Fikret code don't just commented out plz don't delete now
-const playButton = document.querySelector('#play-btn');
-
-function showContainer(){
-const quizContainer = document.querySelector('.quiz-container');
-quizContainer.classList.remove('hide');
-playButton.classList.add('hide');
-}
-
-playButton.addEventListener('click',showContainer);*/
