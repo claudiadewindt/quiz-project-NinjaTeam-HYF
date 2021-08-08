@@ -242,7 +242,7 @@ export const quizData = {
             'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Addition',
         },
       ],
-    },
+    }, 
     {
       text: 'Which array function/s we can use to know if this array contain specific element value or not ?',
       answers: {
