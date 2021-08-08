@@ -24,6 +24,5 @@ export const startTheGame = () => {
   starterEl.addEventListener('click', initializeQuiz);
   starterEl.addEventListener('click', hideButton);
   starterEl.addEventListener('click', unHideButton);
-
   return starterEl;
 };
