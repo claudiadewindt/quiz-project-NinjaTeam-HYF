@@ -12,8 +12,8 @@ export const initializeQuiz = () => {
   setupQuizHTML();
   showCurrentQuestion();
 };
-
-const nextEl = getDOMElement('btn-4'); //I call my btn-4 in our HTML
+// To call btn-4 in our HTML
+const nextEl = getDOMElement('btn-4'); 
 
 const setupQuizHTML = () => {
   const userInterfaceContainer = getDOMElement('user-interface');
@@ -23,9 +23,12 @@ const setupQuizHTML = () => {
   });
   quizContainer.appendChild(questionContainer);
   const nextQuestionButton = createNextQuestionButtonElement();
+  
+  //this is the old location of our next question button
+  //quizContainer.appendChild(nextQuestionButton); 
 
-  //quizContainer.appendChild(nextQuestionButton); //this is the old location of our next question button
-  nextEl.appendChild(nextQuestionButton); //here i append this into my btn-4class
+  //here we append this into our btn-4class
+  nextEl.appendChild(nextQuestionButton); 
   console.log(quizContainer);
   userInterfaceContainer.appendChild(quizContainer);
 };
