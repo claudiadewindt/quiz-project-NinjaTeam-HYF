@@ -33,9 +33,6 @@ export const createAnswerElement = (answerText, letters) => {
 export const createQuestionElement = (question) => {
   // question argument is whole element in quizData.question array.
   // here we make a structure for whole question to put answers in it.
- /*  const container = document.createElement('div');
-  container.className = 'container';
-  container.id = 'question-container'; */
 
   const mainWrapper = document.createElement('div');
   mainWrapper.id = 'main-wrapper';

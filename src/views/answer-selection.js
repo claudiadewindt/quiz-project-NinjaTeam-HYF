@@ -17,7 +17,7 @@ export const checkAnswer = function selectedAnswer() {
   // activating the next question button after choosing:
   const nextQuestionButton = getDOMElement(NEXT_QUESTION_BUTTON_ID);
   nextQuestionButton.addEventListener('click', nextQuestion);
-
+  
   // targeting the answers buttons to work on it:
   const buttonsCon = this.parentElement.parentElement;
   const answerButtons = buttonsCon.querySelectorAll('button');
