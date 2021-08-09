@@ -5,7 +5,7 @@ This repository functions as the basis of the quiz project in the [Browsers modu
 We have already implemented a very basic UI that can go through the questions to show you how this kind of code is split and how you can use the structure to your advantage. Have a look through it before your first group meeting as it can take a little while to get your head around it!
 
 ## check broject
-our live project : https://obadaelsharbatly.github.io/quiz-project-NinjaTeam-HYF/
+our live project : https://claudiadewindt.github.io/quiz-project-NinjaTeam-HYF/
 ## Development
 
 To run this project locally you will need to open `index.html` in your browser using a local server. LiveServer, `http-server`, `study-lenses`, or any other local static server will work.
