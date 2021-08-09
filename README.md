@@ -4,7 +4,7 @@ This repository functions as the basis of the quiz project in the [Browsers modu
 
 We have already implemented a very basic UI that can go through the questions to show you how this kind of code is split and how you can use the structure to your advantage. Have a look through it before your first group meeting as it can take a little while to get your head around it!
 
-## check broject
+## check project
 our live project : https://claudiadewindt.github.io/quiz-project-NinjaTeam-HYF/
 ## Development
 
