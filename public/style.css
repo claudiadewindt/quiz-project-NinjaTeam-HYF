@@ -63,7 +63,7 @@ h2,
   letter-spacing: 2px;
 }
 .hide {
-  display: none;
+  display: none !important;
 }
 /*------ Home Page------- */
 .glass-container {

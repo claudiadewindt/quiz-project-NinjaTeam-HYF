@@ -33,13 +33,13 @@ export const createAnswerElement = (answerText, letters) => {
 export const createQuestionElement = (question) => {
   // question argument is whole element in quizData.question array.
   // here we make a structure for whole question to put answers in it.
-  const container = document.createElement('div');
+ /*  const container = document.createElement('div');
   container.className = 'container';
-  container.id = 'question-container';
+  container.id = 'question-container'; */
 
   const mainWrapper = document.createElement('div');
   mainWrapper.id = 'main-wrapper';
-  container.appendChild(mainWrapper);
+  //container.appendChild(mainWrapper);
 
   const questionText = document.createElement('h2');
   questionText.id = 'Next-question';
@@ -48,7 +48,7 @@ export const createQuestionElement = (question) => {
 
   const answersContainer = document.createElement('div');
   answersContainer.className = 'questions-wrapper';
-  answersContainer.id = 'user-interface';
+  //answersContainer.id = 'user-interface';
   mainWrapper.appendChild(answersContainer);
 
   // this for loop is to execute the function to build structure for every answer for current question,
@@ -61,7 +61,7 @@ export const createQuestionElement = (question) => {
   // here we put a unique Id for every button after producing them in the other for loop.
   // and also put the same class to let it different when hovering.
   let answerKeyNumber = 0;
-  let buttonsEl = container.querySelectorAll('button');
+  let buttonsEl = mainWrapper.querySelectorAll('button');
   for (const answerKey in question.answers) {
     buttonsEl[answerKeyNumber].classList.add('answer-button');
     buttonsEl[answerKeyNumber].id = answerKey;
@@ -74,12 +74,12 @@ export const createQuestionElement = (question) => {
   buttonsEl.forEach((button) => button.addEventListener('click', checkAnswer));
 
   // return the whole container to screen.
-  return container;
+  return mainWrapper;
 };
 
 /**
  * Creates and returns the next questions button
- */
+  */
 
 export const createNextQuestionButtonElement = () => {
   const buttonElement = createDOMElement('button', {

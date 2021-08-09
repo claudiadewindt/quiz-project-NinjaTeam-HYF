@@ -24,7 +24,7 @@ export const quizData = {
       },
       correct: 'c',
       selected: null,
-      timer: 10,
+      timer: 12,
       links: [
         {
           text: 'javascript.info',

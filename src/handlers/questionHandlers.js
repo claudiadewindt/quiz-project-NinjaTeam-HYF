@@ -28,6 +28,7 @@ export const showCurrentQuestion = () => {
   const questionDOM = createQuestionElement(currentQuestion);
 
   const questionContainer = getDOMElement(QUESTION_CONTAINER_ID);
+  questionContainer.classList.add('container');
   clearDOMElement(questionContainer);
   questionContainer.appendChild(questionDOM);
   activateTimerFn();
@@ -62,7 +63,7 @@ export const handleNextQuestion = () => {
     // target restart-button 
     const restartButton = getDOMElement('re-starter');
 
-    // here we hide the question-container
+    // here we hide the question-container if we click the result button.
     const hideContainer = () => {
       timer2.classList.add('hide');
       starterEl2.classList.add('hide');
