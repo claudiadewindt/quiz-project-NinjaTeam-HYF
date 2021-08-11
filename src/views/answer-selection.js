@@ -12,12 +12,12 @@ scoreEl.textContent = 0;
 export const checkAnswer = function selectedAnswer() {
   // deactivating timer if we select any answer.
   deactivateTimerFn();
-  // here we delete the class that when we hove make a black background from the selected answer
+  // here we delete the class that when we hover make a black background from the selected answer
   this.classList.remove('answer-button');
   // activating the next question button after choosing:
   const nextQuestionButton = getDOMElement(NEXT_QUESTION_BUTTON_ID);
   nextQuestionButton.addEventListener('click', nextQuestion);
-  
+
   // targeting the answers buttons to work on it:
   const buttonsCon = this.parentElement.parentElement;
   const answerButtons = buttonsCon.querySelectorAll('button');
@@ -35,12 +35,30 @@ export const checkAnswer = function selectedAnswer() {
     /* forEach button if it's id = the correct answer letter (ex: "c") it give correct-answer class to the button
     and in all situations it removes the Event listener. And the answer will have a green background-color if is right, add 100 points to the score and if the answer is wrong will have a red background-color and will lose 50 points*/
 
-    answerButtons.forEach((element) =>
-      element.id == correct
-        ? element.classList.add('correct-answer') &&
-          element.removeEventListener('click', checkAnswer)
-        : element.removeEventListener('click', checkAnswer)
-    );
+    selectCorrectAnswer(answerButtons);
     return (scoreEl.textContent = parseFloat(scoreEl.textContent) - 50);
   }
+};
+
+const selectCorrectAnswer = (answerButtons) => {
+  const correct = quizData.questions[quizData.currentQuestionIndex].correct;
+
+  answerButtons.forEach((element) =>
+    element.id == correct
+      ? element.classList.add('correct-answer') &&
+        element.removeEventListener('click', checkAnswer)
+      : element.removeEventListener('click', checkAnswer)
+  );
+};
+
+export const cheatFn = () => {
+  const correct = quizData.questions[quizData.currentQuestionIndex].correct;
+
+  const buttonsCon = document.getElementById('question-container');
+
+  const answerButtons = buttonsCon.querySelectorAll('button');
+  selectCorrectAnswer(answerButtons);
+  const nextQuestionButton = getDOMElement(NEXT_QUESTION_BUTTON_ID);
+  nextQuestionButton.addEventListener('click', nextQuestion);
+  deactivateTimerFn();
 };

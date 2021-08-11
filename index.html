@@ -3,38 +3,39 @@
   <head>
     <meta charset="utf8" />
     <title>Ninja Coders Quiz</title>
-    <!-- Fikret Css file don't delete it now plz <link rel="stylesheet" href="/public/index.css">-->
     <link href="./public/style.css" rel="stylesheet" />
     <script type="module" src="./src/data.js"></script>
   </head>
-  <body>    
-    <div class="glass-container" id="user-interface" >
-      <img id="ninja-gif" src="./public/img/giphy.gif" alt="our start gif">
+  <body>
+    <!-- Start page -->
+    <div class="glass-container" id="user-interface">
+      <img id="ninja-gif" src="./public/img/giphy.gif" alt="our start gif" />
       <div class="container">
-        <h1 id='startText'>If You're Ready Press Start</h1>        
+        <h1 id="startText">If You're Ready Press Start</h1>
       </div>
       <!-- buttons -->
       <div class="btn-center">
-        <div class="btn-1 centered" id='starter'>
+        <div class="btn-1 centered" id="starter">
           <a href="#">Start</a>
         </div>
         <div class="btn-2 hide" id="btn-2">
-          <a href="#">Score<br><span id="score"></span></a>
+          <a href="#">Score<br /><span id="score"></span></a>
         </div>
-         <div class="btn-3 hide" id="btn-3">
-          <a href="#">Timer<br><span id="timer"></span></a>
+        <div class="btn-3 hide" id="btn-3">
+          <a href="#">Timer<br /><span id="timer"></span></a>
         </div>
-        <div class="btn-4 hide" id="btn-4">
-        </div>
+        <div class="btn-4 hide" id="btn-4"></div>
+
+        <div class="btn-1 hide" id="cheat"><a href="#">Cheat</a></div>
         <!-- End page -->
 
         <!-- End Button -->
-        <div class="btn-1 hide" id='get-result'>
-            <a href="#">Result</a>
+        <div class="btn-1 hide" id="get-result">
+          <a href="#">Result</a>
         </div>
-           <!-- Restart Button -->
-        <div class="btn-1 hide" id='re-starter' >
-            <a href="./index.html">Restart quiz</a>
+        <!-- Restart Button -->
+        <div class="btn-1 hide" id="re-starter">
+          <a href="./index.html">Restart quiz</a>
         </div>
       </div>
     </div>

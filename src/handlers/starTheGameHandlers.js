@@ -1,5 +1,6 @@
 import { getDOMElement } from '../utils/DOMUtils.js';
 import { initializeQuiz } from '../init/initializeQuiz.js';
+import { cheatFn } from '../views/answer-selection.js';
 
 // Targeting the elements.
 const quizContainerEl = getDOMElement('startText');
@@ -8,10 +9,11 @@ const scoreEl = getDOMElement('btn-2');
 const timerEl = getDOMElement('btn-3');
 const nextEl = getDOMElement('btn-4');
 const imgGifEl = getDOMElement('ninja-gif');
+const cheatButton = getDOMElement('cheat');
 
 //once we click start button >>
 export const startTheGame = () => {
-   // 1- add 'hide' class to the buttons and picture on the screen.
+  // 1- add 'hide' class to the buttons and picture on the screen.
   const hideButton = () => {
     starterEl.classList.add('hide');
     quizContainerEl.classList.add('hide');
@@ -23,11 +25,13 @@ export const startTheGame = () => {
     scoreEl.classList.remove('hide');
     timerEl.classList.remove('hide');
     nextEl.classList.remove('hide');
+    cheatButton.classList.remove('hide');
   };
 
-  // 3- to execute that we add these event listeners to the start button.
+  // 3- to execute that, we add these event listeners to the start button.
   starterEl.addEventListener('click', initializeQuiz);
   starterEl.addEventListener('click', hideButton);
   starterEl.addEventListener('click', unHideButton);
+  cheatButton.addEventListener('click', cheatFn);
   return starterEl;
 };
